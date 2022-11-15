@@ -21,7 +21,8 @@ const routes: Routes = [
     component: AdminShellComponent,
     canActivate: [AdminGuard],
     children: [
-      { path: 'product-list', loadChildren: () => import('./admin-pages/product-list/product-list.module').then(m => m.ProductListModule) },
+      { path: '', loadChildren: () => import('./admin-pages/product-list/product-list.module').then(m => m.ProductListModule) },
+      { path: 'orders', loadChildren: () => import('./admin-pages/orders/orders.module').then(m => m.OrdersModule) },
     ]
   },
   {

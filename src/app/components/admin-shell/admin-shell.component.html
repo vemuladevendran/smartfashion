@@ -13,14 +13,14 @@
             <hr>
             <nav class="nav-bar">
                 <ul>
-                    <li class="mt-2"><a class="py-3 ps-3 nav-link" routerLinkActive="active"
-                            routerLink="product-list">Products
+                    <li class="mt-2"><a class="py-3 ps-3 nav-link" routerLinkActive="active" routerLink="/"
+                            [routerLinkActiveOptions]="{exact:true}">Products
                             List</a></li>
-                    <li class="mt-2"><a class="py-3 ps-3 nav-link" routerLinkActive="active"
-                            routerLink="order-list">Orders
+                    <li class="mt-2"><a class="py-3 ps-3 nav-link" routerLinkActive="active" routerLink="orders"
+                            [routerLinkActiveOptions]="{exact:true}">Orders
                             List</a></li>
-                    <li class="mt-2"><a class="py-3 ps-3 nav-link" routerLinkActive="active"
-                            routerLink="add-product">Add
+                    <li class="mt-2"><a class="py-3 ps-3 nav-link" routerLinkActive="active" routerLink="add-product"
+                            [routerLinkActiveOptions]="{exact:true}">Add
                             Products</a></li>
                 </ul>
             </nav>

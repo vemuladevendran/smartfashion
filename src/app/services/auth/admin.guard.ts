@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminGuard implements CanActivate {
-  isAdmin = false;
+  isAdmin = true;
   isLoggedIn = true;
   constructor(
     private router: Router,
