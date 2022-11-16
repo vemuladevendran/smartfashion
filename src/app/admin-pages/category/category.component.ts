@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
-
+  showAddCategory = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  toggleAddCategory(): void {
+    this.showAddCategory = !this.showAddCategory;
   }
 
 }

@@ -2,7 +2,16 @@
     <div class="row">
         <div class="d-flex justify-content-between mb-3">
             <h5>CATEGORY LIST</h5>
-            <div><button class="primary-btn" routerLink="add-category">Add Category</button></div>
+            <div class="position-relative">
+                <button class="primary-btn" routerLink="add-category" (click)="toggleAddCategory()">Add Category</button>
+                <!-- add category -->
+                <div class="position-absolute add-category-card shadow border" *ngIf="showAddCategory">
+                    <input type="text" placeholder="New Category Name" class="form-input">
+                    <div class="text-center">
+                        <button class="secondary-btn" style="background-color: var(--primary-color);">Create</button>
+                    </div>
+                </div>
+            </div>
         </div>
         <hr>
         <!-- orders list -->
