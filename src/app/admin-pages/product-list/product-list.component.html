@@ -5,8 +5,14 @@
             <p class="fw-bold">Total products {{'343'}}</p>
         </div>
         <hr>
+            <div  *ngIf="productsList.length === 0">
+                Loading
+                <div class="spinner-border text-dark ms-3" style="vertical-align: bottom;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
         <!-- list of products -->
-        <div class="col-12">
+        <div class="col-12" *ngIf="productsList.length > 0">
             <div class="table-responsive">
                 <table class="table table-striped table-hover table-bordered">
                     <thead>
@@ -20,15 +26,17 @@
                         </tr>
                     </thead>
                     <tbody class="align-middle">
-                        <tr *ngFor="let t of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], index as i">
+                        <tr *ngFor="let p of productsList, index as i">
                             <th scope="row">{{i+1}}</th>
-                            <td><img src="/assets/products/2.jpg" alt="Product image" class="product-img" /></td>
-                            <td>Dress</td>
-                            <td>New model of dress, New model of dress, New model of dress</td>
-                            <td>{{'322' | currency: 'INR'}}</td>
-                            <td><span class="material-symbols-outlined cursor-pointer text-danger">
+                            <td><img src="{{BASE_URL}}{{p.IMAGE}}" alt="Product image" class="product-img" /></td>
+                            <td>{{p.PRODUCT_NAME}}</td>
+                            <td>{{p.DESCRIPTION}}</td>
+                            <td>{{p.PRICE | currency: 'INR'}}</td>
+                            <td>
+                                <span class="material-symbols-outlined cursor-pointer text-danger">
                                     delete
-                                </span></td>
+                                </span>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

@@ -6,8 +6,7 @@
                 <h2 class="mb-4 login-text"><img class="login-logo-img" src="/assets/logo.png" alt="logo">Login</h2>
                 <form [formGroup]="loginForm" (ngSubmit)="login()">
                     <div>
-                        <input type="email" class="login-input" placeholder="Email"
-                            formControlName="email">
+                        <input type="email" class="login-input" placeholder="Email" formControlName="email">
                     </div>
                     <div>
                         <input type="password" class="login-input" placeholder="password" formControlName="password">
@@ -18,7 +17,9 @@
                     <span class="text-danger" style="font-size: 12px;">{{invalidDetails}}</span>
                     <div class="text-center">
                         <button class="primary-btn" type="submit" [disabled]="this.loginForm.invalid"
-                            routerLink="/">Login</button>
+                            routerLink="/">Login <div *ngIf="loding" class="spinner-border text-light ms-3" style="vertical-align: bottom;" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div></button>
                     </div>
                     <!-- new account -->
                     <p class="text-center mt-3">New to Fashion <a routerLink="/signup"

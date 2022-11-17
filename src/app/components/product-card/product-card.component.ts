@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProductCardComponent implements OnInit {
   @Input() product: any;
+  BASE_URL: any = 'http://127.0.0.1:5000/uploads/';
   constructor() { }
 
   ngOnInit(): void {

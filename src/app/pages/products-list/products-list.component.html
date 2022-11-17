@@ -29,10 +29,10 @@
     <div class="row mt-2">
         <div class="col-12">
             <div class="d-flex justify-content-between">
-                <p class="fw-bold">Total products : 545</p>
+                <p class="fw-bold">Total products : {{productsList.length}}</p>
                 <p class="d-none d-md-block">Let's make changes in buying</p>
             </div>
-            <app-product-card [product]="productDatails"></app-product-card>
+            <app-product-card [product]="productsList"></app-product-card>
         </div>
         <!-- pagination -->
         <div class="col-12 mt-5 d-flex justify-content-center">

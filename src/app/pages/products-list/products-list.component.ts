@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'app-products-list',
@@ -6,267 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
-  productDatails = [
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/1.jpg'
-    },
-    {
-      title: 'MY Tshirts',
-      price: '320',
-      delivery: '10 day Delivery',
-      rating: '3.2',
-      reviews: '444',
-      image: '/assets/products/2.jpg'
-    },
-    {
-      title: 'Elegant Men Tshirts',
-      price: '820',
-      delivery: 'Free Delivery',
-      rating: '3.0',
-      reviews: '4474',
-      image: '/assets/products/3.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/4.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/5.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/6.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/4.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/5.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/6.jpg'
-    }, {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/4.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/5.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/6.jpg'
-    }, {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/4.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/5.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/6.jpg'
-    }, {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/4.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/5.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/6.jpg'
-    }, {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/4.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/5.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/6.jpg'
-    }, {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/4.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/5.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/6.jpg'
-    }, {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/4.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/5.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/6.jpg'
-    }, {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/4.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/5.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/6.jpg'
-    }, {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/4.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/5.jpg'
-    },
-    {
-      title: 'Stylish Elegant Men Tshirts',
-      price: '120',
-      delivery: 'Free Delivery',
-      rating: '4.0',
-      reviews: '444',
-      image: '/assets/products/6.jpg'
-    },
-  ]
-  constructor() { }
+  productsList:any = [];
+  constructor(
+    private productServe: ProductService,
+  ) { }
 
   ngOnInit(): void {
+    this.getProducts();
   }
+
+  async getProducts(): Promise<void>{
+    try {
+      this.productsList = await this.productServe.getProducts();
+      console.log(this.productsList);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
 }

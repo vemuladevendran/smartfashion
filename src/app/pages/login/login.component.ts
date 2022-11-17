@@ -12,6 +12,7 @@ import { TokenService } from 'src/app/services/token/token.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   invalidDetails = '';
+  loding = false
   constructor(
     private fb: FormBuilder,
     private authServ: AuthService,
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
 
   async login(): Promise<any> {
     try {
+      this.loding = true;
       const data = await this.authServ.login(this.loginForm.value);
       console.log(data);
       if (!data.token) {
@@ -43,6 +45,8 @@ export class LoginComponent implements OnInit {
     } catch (error: any) {
       console.log(error);
       this.invalidDetails = error.error.message;
+    }finally{
+      this.loding = false
     }
   }
 
