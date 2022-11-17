@@ -4,29 +4,29 @@
         <div class="col-12 d-flex justify-content-center col-md-6">
             <div class="login-form-container p-3">
                 <h2 class="mb-4 login-text"><img class="login-logo-img" src="/assets/logo.png" alt="logo">Sign up</h2>
-                <div>
+                <form [formGroup]="signupForm" (ngSubmit)="signup()">
                     <div>
-                        <input type="email" class="login-input" placeholder="Email">
+                        <input type="email" class="login-input" placeholder="Email" formControlName="email">
                     </div>
                     <div>
-                        <input type="text" class="login-input" placeholder="User name">
+                        <input type="text" class="login-input" placeholder="User name" formControlName="name">
                     </div>
                     <div>
-                        <input type="tel" class="login-input" placeholder="Mobile number">
+                        <input type="tel" class="login-input" placeholder="Mobile number" formControlName="mobileNo">
                     </div>
                     <div>
-                        <input type="password" class="login-input" placeholder="password">
+                        <input type="password" class="login-input" placeholder="password" formControlName="password">
                     </div>
                     <p class="text-center" style="font-size: 10px;">
                         By signup, you agree to our Terms of Use and Privacy Policy.
                     </p>
                     <div class="text-center">
-                        <button class="primary-btn" routerLink="/">Sign up</button>
+                        <button class="primary-btn" type="submit" [disabled]="this.signupForm.invalid">Sign up</button>
                     </div>
                     <!-- new account -->
                     <p class="text-center mt-3">Existing User <a routerLink="/login"
                             class="text-decoration-none">Login</a></p>
-                </div>
+                </form>
             </div>
         </div>
     </div>

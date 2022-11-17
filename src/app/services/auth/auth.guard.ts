@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanLoad, Route, Router, RouterStateSnapshot, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { TokenService } from '../token/token.service';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanLoad, CanActivate {
 
-  isAdmin = true;
-  isLoggedIn = true;
   constructor(
     private router: Router,
+    private authServ: AuthService
   ) {
 
   }
@@ -21,14 +22,14 @@ export class AuthGuard implements CanLoad, CanActivate {
 
     const isGoingToLoginPage = route.path === 'login' || 'signup';
 
-    if (!this.isLoggedIn && !isGoingToLoginPage) {
+    if (!this.authServ.isLoggedIn() && !isGoingToLoginPage) {
       this.router.navigate(['/login']);
       return false;
     }
 
-    if (this.isLoggedIn && isGoingToLoginPage) {
+    if (this.authServ.isLoggedIn() && isGoingToLoginPage) {
       // redirecting user to respective home pages if they try to navigate to login page
-      if (this.isAdmin) {
+      if (this.authServ.isAdmin()) {
         this.router.navigate(['/admin']);
       } else {
         this.router.navigate(['/']);
@@ -37,7 +38,7 @@ export class AuthGuard implements CanLoad, CanActivate {
       return false;
     }
 
-    if (this.isLoggedIn && this.isAdmin) {
+    if (this.authServ.isLoggedIn() && this.authServ.isAdmin()) {
       this.router.navigate(['admin']);
       return false;
     }
@@ -52,14 +53,14 @@ export class AuthGuard implements CanLoad, CanActivate {
   ): | Promise<boolean | UrlTree> {
     const isGoingToLoginPage = route.url.some(data => data.path.includes('login'));
 
-    if (!this.isLoggedIn && !isGoingToLoginPage) {
+    if (!this.authServ.isLoggedIn() && !isGoingToLoginPage) {
       this.router.navigate(['/login']);
       return false;
     }
 
-    if (this.isLoggedIn && isGoingToLoginPage) {
+    if (this.authServ.isLoggedIn() && isGoingToLoginPage) {
       // redirecting user to respective home pages if they try to navigate to login page
-      if (this.isAdmin) {
+      if (this.authServ.isAdmin()) {
         this.router.navigate(['/admin']);
       } else {
         this.router.navigate(['/']);
@@ -68,7 +69,7 @@ export class AuthGuard implements CanLoad, CanActivate {
       return false;
     }
 
-    if (this.isLoggedIn && this.isAdmin) {
+    if (this.authServ.isLoggedIn() && this.authServ.isAdmin()) {
       this.router.navigate(['admin']);
       return false;
     }

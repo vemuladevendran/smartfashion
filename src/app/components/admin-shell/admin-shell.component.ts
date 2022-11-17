@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-admin-shell',
@@ -7,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminShellComponent implements OnInit {
   showNav = true;
-  constructor() { }
+  constructor(
+    private authServe: AuthService
+  ) { }
 
    toggleNav(): void {
     this.showNav = !this.showNav;
+   }
+
+   logout(): void {
+    this.authServe.logout();
    }
 
   ngOnInit(): void {

@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminGuard implements CanActivate {
-  isAdmin = true;
-  isLoggedIn = true;
+  // isAdmin = true;
+  // isLoggedIn = false;
   constructor(
     private router: Router,
+    private authServe: AuthService,
   ) {
 
   }
@@ -22,24 +24,25 @@ export class AdminGuard implements CanActivate {
     const isGoingToLoginPage = route.url.some(data => data.path.includes('login'));
     const isAdminRelatedPage = route.url[0]?.path === 'admin'
 
-    if (!this.isLoggedIn && !isGoingToLoginPage) {
+    if (!this.authServe.isLoggedIn() && !isGoingToLoginPage) {
       this.router.navigate(['/login']);
       return false;
     }
 
-    if (this.isLoggedIn && isGoingToLoginPage) {
-      if (this.isAdmin) {
+    if (this.authServe.isLoggedIn() && isGoingToLoginPage) {
+      if (this.authServe.isAdmin()) {
         this.router.navigate(['/admin'])
         return false;
       }
     }
+console.log(this.authServe.isAdmin(), '-------------');
 
-    if (this.isLoggedIn && isAdminRelatedPage && !this.isAdmin) {
+    if (this.authServe.isLoggedIn() && isAdminRelatedPage && !this.authServe.isAdmin()) {
       this.router.navigate(['/']);
       return false;
     }
 
-    if (this.isLoggedIn && this.isAdmin && !isAdminRelatedPage) {
+    if (this.authServe.isLoggedIn() && this.authServe.isAdmin() && !isAdminRelatedPage) {
       this.router.navigate(['/admin']);
       return false;
     }

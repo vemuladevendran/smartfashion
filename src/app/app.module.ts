@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AppShellModule } from './components/app-shell/app-shell.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminShellModule } from './components/admin-shell/admin-shell.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AdminShellModule } from './components/admin-shell/admin-shell.module';
     AppShellModule,
     BrowserAnimationsModule,
     AdminShellModule,
-    AppShellModule
+    AppShellModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
