@@ -24,4 +24,9 @@ export class ProductService {
     const url = `${this.settings.API_BASE_URL}/product/get`;
     return lastValueFrom(this.http.get(url))
   }
+
+  getProductById(id:any): Promise<any>{
+    const url = `${this.settings.API_BASE_URL}/product/${id}`;
+    return lastValueFrom(this.http.get(url))
+  }
 }

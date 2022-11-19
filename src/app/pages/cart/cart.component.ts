@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+  BASE_URL: any = 'http://127.0.0.1:5000/uploads/';
 
   constructor() { }
 

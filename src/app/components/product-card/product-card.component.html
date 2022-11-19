@@ -1,6 +1,6 @@
 <section class="row">
     <div class="col-6 col-md-4 col-lg-3 col-xl-2" *ngFor="let p of product, index as i">
-        <div class="p-2 shadow pro-card" [routerLink]="['/products/id']">
+        <div class="p-2 shadow pro-card" [routerLink]="['/products/',p.IMAGE]">
             <div class="text-center">
                 <img src="{{BASE_URL}}{{p.IMAGE}}" alt="product img" class="product-img" loading="lazy" decoding="async">
             </div>

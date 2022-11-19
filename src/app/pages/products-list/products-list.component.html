@@ -32,6 +32,12 @@
                 <p class="fw-bold">Total products : {{productsList.length}}</p>
                 <p class="d-none d-md-block">Let's make changes in buying</p>
             </div>
+            <div *ngIf="productsList.length === 0">
+                Loading
+                <div class="spinner-border text-dark ms-3" style="vertical-align: bottom;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
             <app-product-card [product]="productsList"></app-product-card>
         </div>
         <!-- pagination -->

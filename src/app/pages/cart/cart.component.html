@@ -1,9 +1,9 @@
 <section class="container mt-3 pt-3 pt-md-4">
     <div class="row">
         <div class="col-12 col-md-6">
-            <div class="shadow p-2 mt-3" *ngFor="let t of [1,1,1,1,1]">
+            <div class="shadow p-2 mt-3" *ngFor="let t of [1,1,1,1,1], index as i">
                 <div class="d-flex align-items-center">
-                    <img src="/assets/products/2.jpg" alt="Product image" class="product-img" />
+                    <img src="{{BASE_URL}}{{i + 1}}.jpg" alt="Product image" class="product-img" />
                     <p class="fw-bold ms-2">Title of the image</p>
                 </div>
                 <p>Price : {{344 | currency:'INR'}}</p>
